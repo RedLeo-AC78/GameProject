@@ -4,7 +4,7 @@
     header('Location: auth.php');
     exit();
   }
-
+  // Je suis un super commentaire
   // Connect to the database
   $conn = new mysqli("localhost", "root","","galactus");
 
