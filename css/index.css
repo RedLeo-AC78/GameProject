@@ -1,0 +1,273 @@
+/* Body styling */
+body {
+  margin: 0;
+  padding: 0;
+  background: url("../img/background.jpg") no-repeat center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+}
+
+/* Container styling */
+.container h1 {
+  font-size: 36px;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgb(21, 29, 182);
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+
+/* Top buttons styling */
+.top-buttons {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.top-buttons button {
+  background-color: #1838c5;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #112bbd;
+}
+
+/* Play and Credits buttons styling */
+.buttons {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.icon-button {
+  background-color: #1838c5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 13%;
+}
+
+.icon-button:hover {
+  background-color: #112bbd;
+}
+
+.icon-button i {
+  font-size: 18px;
+}
+
+/* Options menu styling */
+.options-menu {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #404e5a;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  width: 300px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: showMenu 0.5s forwards;
+}
+
+@keyframes showMenu {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.options-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.options-menu ul li {
+  padding: 10px;
+  border-bottom: 1px solid #0b8177;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.options-menu ul li:hover {
+  background-color: #097476;
+}
+
+.options-menu select {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+  background-color: #1838c5;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Sound toggle styling */
+.sound-toggle {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.sound-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #007bff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Tutorial menu styling */
+.tutorial-menu {
+  display: none;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  color: white;
+}
+
+.tutorial-section {
+  display: none;
+}
+
+/* Tutorial titles styling */
+.tutorial-title.english {
+  color: #ff0000; /* Blue color for English title */
+}
+
+.tutorial-title.french {
+  color: #ff0000; /* Tomato color for French title */
+}
+/* Heartbeat animation keyframes */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1); /* Normal size */
+  }
+  25% {
+    transform: scale(1.1); /* Slightly larger */
+  }
+  50% {
+    transform: scale(1); /* Back to normal size */
+  }
+  75% {
+    transform: scale(1.1); /* Slightly larger */
+  }
+  100% {
+    transform: scale(1); /* Back to normal size */
+  }
+}
+
+/* Base style for the PLAY button */
+#playButton {
+  background-color: #1838c5; /* Default background color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Padding for spacing */
+  font-size: 18px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 10px; /* Rounded corners */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  gap: 10px; /* Space between icon and text */
+  width: 13%; /* Button width */
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transitions */
+}
+
+/* Hover effect: Apply heartbeat animation */
+#playButton:hover {
+  animation: heartbeat 1.5s infinite; /* Heartbeat animation on hover */
+  background-color: #000b8a; /* Change background color on hover */
+  box-shadow: 0 0 15px rgba(0, 19, 159, 0.7); /* Add a glowing shadow */
+}
+.high-score {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.2em; /* Réduction de la taille */
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 5px #ff00ff;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ff00ff;
+  box-shadow: 0 0 10px #ff00ff;
+  
+}
+
+
+
+
+
+
+
+

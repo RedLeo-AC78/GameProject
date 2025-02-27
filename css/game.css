@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+  overflow: hidden;
+}
+
+#gameContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 99vh;
+  background-image: url("../img/Spaaace.gif");
+  background-size: cover;
+  overflow: hidden;
+  border: 2px solid black;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  width: 15vw;
+  height: 100vh;
+  background-size: cover;
+}
+
+#returnButton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#leftBackground {
+  left: 0;
+  background-image: url("../img/Galac12.jpg");
+}
+
+#rightBackground {
+  right: 0;
+  background-image: url("../img/Galac2.jpg");
+}
+
+.player {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 300px; /* Réduction de la taille */
+  height: 120px; /* Ajustez selon vos besoins */
+  background-color: transparent;
+  transform: translateX(-50%);
+  background-image: url("../img/1.png");
+  background-size: contain; /* Affiche toute l'image */
+  background-repeat: no-repeat; /* Empêche la répétition */
+  background-position: center; /* Centre l'image */
+}
+
+.fallingObject {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  background-size: cover;
+}
+
+.obstacle {
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  background-color: transparent;
+  background-image: url("../img/ghost210.gif");
+  background-size: cover;
+}
+
+.obstacle2 {
+  position: absolute;
+  width: 100px;
+  height: 45px;
+  background-color: transparent;
+  background-image: url("../img/Surfer.gif");
+  background-size: cover;
+}
+
+#score {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  color: white;
+}
+
+.magneticObstacle {
+  position: absolute;
+  width: 30px;
+  height: 75px;
+  background-color: transparent;
+  background-image: url("../img/Magneti.gif");
+  background-size: cover;
+}
+#gameOverScreen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: rgb(238, 8, 8);
+  padding: 30px;
+  text-align: center;
+  z-index: 10000;
+  border-radius: 10px;
+}
+
+#retryButton {
+  background-color: #1552a3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+#retryButton:hover {
+  background-color: #45a049;
+}
+#returnButton:hover {
+  background-color: #e60e0e;
+}

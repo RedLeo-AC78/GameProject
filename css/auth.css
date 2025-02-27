@@ -1,0 +1,117 @@
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/imagefond.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Container styling */
+.container {
+  
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+/* Title styling */
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input group styling */
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.input-group:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-color: #007bff;
+}
+
+.input-group:focus-within {
+  border-color: #007bff;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.input-group i {
+  margin-right: 10px;
+  color: #777;
+  transition: color 0.3s ease;
+}
+
+.input-group:focus-within i {
+  color: #007bff;
+}
+
+/* Input styling */
+input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: #999;
+  transition: color 0.3s ease;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+/* Button styling */
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Toggle text styling */
+p {
+  margin-top: 15px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
