@@ -4,7 +4,7 @@
     header('Location: auth.php');
     exit();
   }
-  // Je suis un super commentaire
+  
   // Connect to the database
   $conn = new mysqli("localhost", "root","","galactus");
 
@@ -37,6 +37,12 @@
     />
   </head>
   <body>
+    <audio id="backgroundMusic" loop>
+      <source
+        src="audio/Title - StarFox 2 - SNES - OST .mp3"
+        type="audio/mpeg"
+      />
+    </audio>
   <?php if ($top_score > 0): ?>
         <div class="high-score">
             <h3>High Score: <span id="highScore"><?php echo htmlspecialchars($top_score); ?></span></h3>
@@ -160,7 +166,7 @@
         </p>
       </div>
     </div>
-
+   
     <script src="js/index.js"></script>
   </body>
 </html>

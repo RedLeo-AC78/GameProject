@@ -1,6 +1,14 @@
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("../fonts/PressStart2P-Regular.woff2") format("woff2"),
+    url("../fonts/PressStart2P-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Body styling */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Press Start 2P", sans-serif;
   margin: 0;
   height: 100vh;
   display: flex;
@@ -13,7 +21,6 @@ body {
 
 /* Container styling */
 .container {
-  
   background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 8px;

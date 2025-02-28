@@ -1,4 +1,13 @@
+@font-face {
+  font-family: "Press Start2P";
+  src: url("../fonts/PressStart2P-Regular.woff2") format("woff2"),
+    url("../fonts/PressStart2P-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
+  font-family: "Press Start2P", sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
@@ -12,43 +21,42 @@ body {
   position: relative;
   background-color: black;
   color: white;
-  font-family: Arial, sans-serif;
   overflow: hidden;
 }
 
 .intro-container {
   position: relative;
   text-align: center;
-  width: 80%;
+  width: 90%;
   max-width: 600px;
   margin: auto;
   opacity: 0;
   animation: fadeIn 3s forwards 1s;
 }
 #skip-button {
-  position: absolute; /* Position absolue pour placer le bouton où vous voulez */
-  bottom: 20px; /* Distance depuis le bas */
-  right: 20px; /* Distance depuis la droite */
-  padding: 10px 20px; /* Espacement interne (haut/bas, gauche/droite) */
-  font-size: 16px; /* Taille de la police */
-  color: white; /* Couleur du texte */
-  background-color: #ff4757; /* Couleur de fond */
-  border: none; /* Pas de bordure */
-  border-radius: 5px; /* Coins arrondis */
-  cursor: pointer; /* Curseur en forme de main au survol */
-  transition: background-color 0.3s ease; /* Animation de transition pour le survol */
-  font-family: 'Arial', sans-serif; /* Police de caractères */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #ff4757;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Arial", sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #skip-button:hover {
-  background-color: #ff6b81; /* Changement de couleur au survol */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+  background-color: #ff6b81;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 #skip-button:active {
-  background-color: #ff4757; /* Changement de couleur lors du clic */
-  transform: scale(0.95); /* Légère réduction de taille lors du clic */
+  background-color: #ff4757;
+  transform: scale(0.95);
 }
 
 #intro-container::after {
@@ -83,13 +91,19 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.2em;
+  font-size: 80%;
   color: white;
   padding: 10px;
   border-radius: 10px;
   text-align: center;
   width: 80%;
   opacity: 0;
+}
+
+#intro-image {
+  filter: brightness(1.5);
+  opacity: 0.5;
+  width: 80%;
 }
 
 @keyframes fadeIn {

@@ -1,36 +1,36 @@
-// Déclaration des éléments du DOM
+// Declare DOM elements
 const gameContainer = document.getElementById("gameContainer");
 const player = document.getElementById("player");
 
-// Dimensions du jeu
+// Game dimensions
 const gameWidth = gameContainer.offsetWidth;
 const gameHeight = gameContainer.offsetHeight;
 
-// Position et vitesse du joueur
+// Player position and speed
 let playerX = (gameWidth - 50) / 2;
 let playerY = gameHeight - 60;
 const initialSpeed = 5;
 let playerSpeed = initialSpeed;
 
-// Gestion des touches du clavier
+// Keyboard key management
 let keys = {};
 
-// Score et état du jeu
+// Score and game state
 let score = 0;
 let obstacleExists = false;
 let gameOver = false;
 
-// Obstacles magnétiques
+// Magnetic obstacles
 let magneticObstacles = [];
 const maxMagneticObstacles = 2;
 
-// Affichage du score
+// Score display
 const scoreDisplay = document.createElement("div");
 scoreDisplay.id = "score";
 scoreDisplay.innerText = "Score: 0";
 gameContainer.appendChild(scoreDisplay);
 
-// Écouteurs d'événements pour les touches du clavier
+// Event listeners for keyboard inputs
 document.addEventListener("keydown", (event) => {
   keys[event.key] = true;
 });
@@ -39,7 +39,7 @@ document.addEventListener("keyup", (event) => {
   keys[event.key] = false;
 });
 
-// Fonction pour déplacer le joueur
+// Function to move the player based on key presses
 function movePlayer() {
   if (keys["ArrowLeft"]) {
     playerX = Math.max(0, playerX - playerSpeed);
@@ -57,12 +57,15 @@ function movePlayer() {
   player.style.top = playerY + "px";
 }
 
+// Call movePlayer function every 20ms
 setInterval(movePlayer, 20);
 
-// Fonction pour créer un obstacle venant de la gauche
+// Function to create an obstacle from the left
 function createObstacleFromLeft() {
   if (gameOver || obstacleExists) return;
   obstacleExists = true;
+
+  // Create obstacle element
   const obstacle = document.createElement("div");
   obstacle.classList.add("obstacle");
   obstacle.style.top = Math.random() * (gameHeight - 50) + "px";
@@ -76,7 +79,7 @@ function createObstacleFromLeft() {
       obstacle.remove();
       return;
     }
-
+    // Check for collision with player
     let obstacleLeft = parseInt(obstacle.style.left);
     let obstacleTop = parseInt(obstacle.style.top);
     let playerLeft = parseInt(player.style.left);
@@ -93,10 +96,14 @@ function createObstacleFromLeft() {
       obstacleTop + obstacleHeight > playerTop
     ) {
       playerSpeed = Math.max(1, playerSpeed - 1.5);
-      
-      console.log("Collision avec obstacle gauche ! Nouvelle vitesse :", playerSpeed);
+
+      console.log(
+        "Collision avec obstacle gauche ! Nouvelle vitesse :",
+        playerSpeed
+      );
     }
 
+    // Remove obstacle when it reaches the right edge
     if (obstacleLeft >= gameWidth) {
       clearInterval(obstacleInterval);
       obstacle.remove();
@@ -108,7 +115,7 @@ function createObstacleFromLeft() {
   }, 50);
 }
 
-// Fonction pour créer un obstacle venant de la droite
+// Function to create an obstacle from the right
 function createObstacleFromRight() {
   if (gameOver || obstacleExists) return;
   obstacleExists = true;
@@ -126,6 +133,7 @@ function createObstacleFromRight() {
       return;
     }
 
+    // Check for collision with player
     let obstacleLeft = parseInt(obstacle.style.left);
     let obstacleTop = parseInt(obstacle.style.top);
     let playerLeft = parseInt(player.style.left);
@@ -142,10 +150,14 @@ function createObstacleFromRight() {
       obstacleTop + obstacleHeight > playerTop
     ) {
       playerSpeed = Math.max(1, playerSpeed - 1.5);
-      
-      console.log("Collision avec obstacle droit ! Nouvelle vitesse :", playerSpeed);
+
+      console.log(
+        "Collision avec obstacle droit ! Nouvelle vitesse :",
+        playerSpeed
+      );
     }
 
+    // Remove obstacle when it reaches the left edge
     if (obstacleLeft <= -50) {
       clearInterval(obstacleInterval);
       obstacle.remove();
@@ -157,7 +169,7 @@ function createObstacleFromRight() {
   }, 50);
 }
 
-// Fonction pour créer des objets tombants
+// Function to create falling objects (planets)
 function createFallingObject() {
   if (gameOver) return;
 
@@ -166,12 +178,10 @@ function createFallingObject() {
   object.style.left = Math.random() * (gameWidth - 30) + "px";
   object.style.top = "0px";
 
-  const images = [
-    "img/Planet-1.gif",
-    "img/Planet-3.png",
-    "img/Planet-4.gif",
-  ];
-  object.style.backgroundImage = `url(${images[Math.floor(Math.random() * images.length)]})`;
+  const images = ["img/Planet-1.gif", "img/Planet-3.png", "img/Planet-4.gif"];
+  object.style.backgroundImage = `url(${
+    images[Math.floor(Math.random() * images.length)]
+  })`;
   object.style.backgroundSize = "cover";
 
   gameContainer.appendChild(object);
@@ -188,6 +198,7 @@ function createFallingObject() {
     let playerLeft = parseInt(player.style.left);
     let playerTop = parseInt(player.style.top);
 
+    // Check for collision with player
     if (
       objectTop + 30 >= playerTop &&
       objectTop <= playerTop + 50 &&
@@ -199,15 +210,13 @@ function createFallingObject() {
       score++;
       scoreDisplay.innerText = "Score: " + score;
       playerSpeed = Math.min(initialSpeed, playerSpeed + 0.5);
-    
-      // Changer temporairement l'image du joueur
+
+      // Temporarily change player's image
       player.style.backgroundImage = 'url("img/2.png")';
-    
-      // Revenir à l'image d'origine après 1 seconde
+
       setTimeout(() => {
         player.style.backgroundImage = 'url("img/1.png")';
       }, 200);
-    
     } else if (objectTop > gameHeight - 30) {
       clearInterval(fallInterval);
       object.remove();
@@ -221,7 +230,7 @@ function createFallingObject() {
   }, 50);
 }
 
-// Fonction pour afficher l'écran de fin de jeu
+// Function to display the game over screen
 function showGameOver() {
   if (gameOver) return;
 
@@ -242,24 +251,27 @@ function showGameOver() {
   });
 }
 
-// Démarrage du jeu
+// Start game events
 setTimeout(createObstacleFromLeft, 1000);
 setTimeout(createObstacleFromRight, 5000);
 setInterval(createFallingObject, 1000);
 
-// Lecture de la musique de fond après interaction utilisateur
+// Play background music after user interaction
 window.addEventListener("DOMContentLoaded", () => {
   const music = document.getElementById("backgroundMusic");
   music.volume = 0.5;
 
   document.body.addEventListener("click", () => {
     music.play().catch((error) => {
-      console.log("La lecture automatique est bloquée par le navigateur :", error);
+      console.log(
+        "La lecture automatique est bloquée par le navigateur :",
+        error
+      );
     });
   });
 });
 
-// Fonction pour créer des obstacles magnétiques
+// Function to create magnetic obstacles
 function createMagneticObstacle() {
   if (magneticObstacles.length >= maxMagneticObstacles || gameOver) return;
 
@@ -276,12 +288,14 @@ function createMagneticObstacle() {
     let playerLeft = parseInt(player.style.left);
     let playerTop = parseInt(player.style.top);
 
+    // Calculate the distance between the player and the magnetic obstacle
     let distanceX = magnetLeft - playerLeft;
     let distanceY = magnetTop - playerTop;
     let distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
 
+    // If the player is within range, they are pulled towards the obstacle
     if (distance < 150 && distance > 10) {
-      let pullStrength = 4;
+      let pullStrength = 3.5;
       playerX += (distanceX / distance) * pullStrength;
       playerY += (distanceY / distance) * pullStrength;
       player.style.left = playerX + "px";
@@ -289,6 +303,7 @@ function createMagneticObstacle() {
     }
   }, 50);
 
+  // If the player is within range, they are pulled towards the obstacle
   setTimeout(() => {
     clearInterval(magnetInterval);
     magneticObstacle.remove();
@@ -298,9 +313,10 @@ function createMagneticObstacle() {
   }, 10000);
 }
 
+// Generate a new magnetic obstacle every 3 seconds
 setInterval(createMagneticObstacle, 3000);
 
-
+// Function to send the final score to the server
 function sendScoreToServer() {
   if (gameOver) {
     console.log("Score final à envoyer:", score);
@@ -312,11 +328,11 @@ function sendScoreToServer() {
       },
       body: "score=" + encodeURIComponent(score),
     })
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         console.log("Réponse du serveur:", data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Erreur lors de l'envoi du score:", error);
       });
   }

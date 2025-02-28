@@ -16,11 +16,12 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="css/intro.css" />
   </head>
   <body>
-    <audio
-      id="background-music"
-      src="audio/02 - Prologue [Super Metroid OST Remastered].mp3"
-      loop
-    ></audio>
+  <audio id="backgroundMusic" loop>
+      <source
+        src="audio/02 - Prologue Super Metroid OST.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
     <div class="intro-container">
       <h1 id="game-title">Galactus : Journey to the Earth</h1>
       <img

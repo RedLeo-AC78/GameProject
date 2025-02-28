@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); // Start a new or resume an existing session
 
 if (isset($_SESSION['username'])) {
     header("Location: index.php");
@@ -20,6 +20,7 @@ try {
 
 $error = "";
 
+// Check if the login form has been submitted
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["action"])) {
     $identifiant = trim($_POST["identifiant"]);
     $motdepasse = trim($_POST["motdepasse"]);
@@ -28,6 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["action"])) {
         $error = "All fields are required.";
     } else {
         if ($_POST["action"] === "login") {
+            
+            // Prepare a SQL statement to prevent SQL injection
             $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
             $stmt->execute([$identifiant]);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);

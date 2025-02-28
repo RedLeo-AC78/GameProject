@@ -1,5 +1,5 @@
 <?php
-require_once 'vendor/autoload.php'; // Nécessite la bibliothèque vlucas/phpdotenv
+require_once 'vendor/autoload.php'; // Requires the vlucas/phpdotenv library
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();

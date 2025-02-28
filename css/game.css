@@ -1,4 +1,13 @@
+@font-face {
+  font-family: "Press Start2P";
+  src: url("../fonts/PressStart2P-Regular.woff2") format("woff2"),
+    url("../fonts/PressStart2P-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
+  font-family: "Press Start2P", sans-serif;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -56,14 +65,14 @@ body {
   position: absolute;
   bottom: 10px;
   left: 50%;
-  width: 300px; /* Réduction de la taille */
-  height: 120px; /* Ajustez selon vos besoins */
+  width: 300px;
+  height: 120px;
   background-color: transparent;
   transform: translateX(-50%);
   background-image: url("../img/1.png");
-  background-size: contain; /* Affiche toute l'image */
-  background-repeat: no-repeat; /* Empêche la répétition */
-  background-position: center; /* Centre l'image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .fallingObject {
