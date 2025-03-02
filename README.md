@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # Galactus : Journey to the Earth
 
 English version

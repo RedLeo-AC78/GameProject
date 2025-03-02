@@ -204,6 +204,7 @@ input:checked + .slider:before {
 
 .tutorial-section {
   display: none;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 /* Tutorial titles styling */

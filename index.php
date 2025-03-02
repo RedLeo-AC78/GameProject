@@ -141,27 +141,27 @@
         <h3 class="tutorial-title french">Règles du jeu</h3>
         <!-- Colored title -->
         <p>
-          Commandes : -Utilisez les flèches directionnelles du clavier pour
+          Commandes : Utilisez les flèches directionnelles du clavier pour
           déplacer Galactus à travers l’espace.
         </p>
         <p>
-          Objectif : -Galactus doit manger un maximum de planètes sur son chemin
-          vers la Terre. -Chaque planète avalée augmente votre score.
+          Objectif : Galactus doit manger un maximum de planètes sur son chemin
+          vers la Terre. Chaque planète avalée augmente votre score.
         </p>
         <p>
-          Conditions de survie: -S'il ne mange pas de planètes, il s'affaiblit,
-          ralentit et finit par mourir de faim. -Attention aux ennemis sur son
+          Conditions de survie: S'il ne mange pas de planètes, il s'affaiblit,
+          ralentit et finit par mourir de faim. Attention aux ennemis sur son
           passage.
         </p>
         <p>
-          Quiz Marvel : -Tous les 5 planètes mangées, une question sur l’univers
-          Marvel apparaît. -Trois planètes s’afficheront, chacune représentant
+          Quiz Marvel : Tous les 5 planètes mangées, une question sur l’univers
+          Marvel apparaît. Trois planètes s’afficheront, chacune représentant
           une proposition de réponse. -Pour répondre, Galactus doit manger la
           planète de son choix.
         </p>
         <p>
-          Progression : -Plus Galactus mange de planètes, plus le score
-          augmente. -Obtenir le meilleur score pour gagner beaucoup de
+          Progression : Plus Galactus mange de planètes, plus le score
+          augmente. Obtenir le meilleur score pour gagner beaucoup de
           récompenses. Parviendrez-vous à guider Galactus jusqu’à la Terre ?
         </p>
       </div>
